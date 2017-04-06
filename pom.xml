@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>by.pasha-remba</groupId>
+    <artifactId>SpringCouchbaseJava</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <spring.data.couchbase.version>2.2.1.RELEASE</spring.data.couchbase.version>
+        <joda.time.version>2.9.2</joda.time.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-couchbase</artifactId>
+            <version>${spring.data.couchbase.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda.time.version}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>
