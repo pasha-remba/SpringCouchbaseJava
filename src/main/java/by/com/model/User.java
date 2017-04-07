@@ -2,10 +2,11 @@ package by.com.model;
 
 import com.couchbase.client.java.repository.annotation.Field;
 import com.couchbase.client.java.repository.annotation.Id;
-import com.sun.istack.internal.NotNull;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.DateTime;
 import org.springframework.data.couchbase.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ public class User {
     private String id;
 
     @Field(value = "fname")
-    @NotNull
+    @NotEmpty
     private String firstName;
 
     @Field
