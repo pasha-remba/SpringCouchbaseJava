@@ -6,6 +6,9 @@ import com.sun.istack.internal.NotNull;
 import org.joda.time.DateTime;
 import org.springframework.data.couchbase.core.mapping.Document;
 
+import java.util.List;
+import java.util.Map;
+
 @Document
 public class User {
 
@@ -18,11 +21,7 @@ public class User {
 
     @Field
     @NotNull
-    private String lastName;
-
-    @Field
-    @NotNull
-    private String age;
+    private Integer age;
 
     @Field
     @NotNull
@@ -31,34 +30,18 @@ public class User {
     @Field
     private DateTime updated;
 
-    public User(String id, String firstName, String lastName, String age) {
+    @Field
+    private List<String> childrenName;
+
+    @Field
+    private Map<String, Integer> childrenAges;
+
+    @Field
+    private List<Child> children;
+
+    public User(String id, String firstName, Integer age) {
         this.id = id;
         this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
         this.age = age;
     }
 
@@ -70,21 +53,60 @@ public class User {
         this.id = id;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
     public DateTime getCreated() {
         return created;
     }
 
-    public void setCreated(DateTime createdOn) {
+    public void setCreated(DateTime created) {
         this.created = created;
     }
 
     public DateTime getUpdated() {
-
         return updated;
     }
 
     public void setUpdated(DateTime updated) {
         this.updated = updated;
+    }
+
+    public List<String> getChildrenName() {
+        return childrenName;
+    }
+
+    public void setChildrenName(List<String> childrenName) {
+        this.childrenName = childrenName;
+    }
+
+    public Map<String, Integer> getChildrenAges() {
+        return childrenAges;
+    }
+
+    public void setChildrenAges(Map<String, Integer> childrenAges) {
+        this.childrenAges = childrenAges;
+    }
+
+    public List<Child> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Child> children) {
+        this.children = children;
     }
 
     @Override
@@ -96,20 +118,36 @@ public class User {
 
         if (id != null ? !id.equals(user.id) : user.id != null) return false;
         if (firstName != null ? !firstName.equals(user.firstName) : user.firstName != null) return false;
-        if (lastName != null ? !lastName.equals(user.lastName) : user.lastName != null) return false;
         if (age != null ? !age.equals(user.age) : user.age != null) return false;
         if (created != null ? !created.equals(user.created) : user.created != null) return false;
-        return updated != null ? updated.equals(user.updated) : user.updated == null;
+        if (updated != null ? !updated.equals(user.updated) : user.updated != null) return false;
+        if (childrenName != null ? !childrenName.equals(user.childrenName) : user.childrenName != null) return false;
+        if (childrenAges != null ? !childrenAges.equals(user.childrenAges) : user.childrenAges != null) return false;
+        return children != null ? children.equals(user.children) : user.children == null;
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (age != null ? age.hashCode() : 0);
         result = 31 * result + (created != null ? created.hashCode() : 0);
         result = 31 * result + (updated != null ? updated.hashCode() : 0);
+        result = 31 * result + (childrenName != null ? childrenName.hashCode() : 0);
+        result = 31 * result + (childrenAges != null ? childrenAges.hashCode() : 0);
+        result = 31 * result + (children != null ? children.hashCode() : 0);
         return result;
     }
+
+    static class Child {
+
+       private String name;
+       private int age;
+
+       Child(String name, int age) {
+           this.name = name;
+           this.age = age;
+       }
+
+   }
 }
