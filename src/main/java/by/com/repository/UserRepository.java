@@ -9,6 +9,6 @@ import java.util.List;
 public interface UserRepository extends CrudRepository<User,String> {
 
     @View
-    List<User> findByLastname(String lastName);
+    List<User> findByLastName(String lastName);
 
 }

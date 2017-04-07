@@ -9,8 +9,11 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.data.couchbase.version>2.2.1.RELEASE</spring.data.couchbase.version>
         <joda.time.version>2.9.2</joda.time.version>
+        <validation.api.version>1.1.0.Final</validation.api.version>
+        <hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
     </properties>
 
     <dependencies>
@@ -24,6 +27,18 @@
             <artifactId>joda-time</artifactId>
             <version>${joda.time.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation.api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator.version}</version>
+        </dependency>
+
     </dependencies>
 
 
