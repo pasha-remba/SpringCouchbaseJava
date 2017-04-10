@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService{
     }
 
     public List<User> findByFirstName(String firstName) {
-        return userRepository.findByLastname(firstName);
+        return userRepository.findByLastName(firstName);
     }
 
     public void create(User user) {

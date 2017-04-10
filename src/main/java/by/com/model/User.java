@@ -7,6 +7,8 @@ import org.joda.time.DateTime;
 import org.springframework.data.couchbase.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +20,8 @@ public class User {
 
     @Field(value = "fname")
     @NotEmpty
+    @Size(min=1, max=20)
+    @Pattern(regexp="^[a-zA-Z .'-]+$")
     private String firstName;
 
     @Field
